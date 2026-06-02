@@ -1,10 +1,16 @@
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--yt-bg:#0f0f0f;--yt-surface:#1f1f1f;--yt-surface2:#272727;--yt-border:#3d3d3d;--yt-text:#f1f1f1;--yt-text2:#aaa;--yt-text3:#717171;--yt-chip-active:#f1f1f1;--yt-chip-bg:#272727;--yt-red:#ff0000;--yt-header:#0f0f0f}
 body{background:#0f0f0f;color:#f1f1f1;font-family:'Roboto',-apple-system,sans-serif}
-.app{display:grid;grid-template-columns:300px 1fr;min-height:640px}
-.panel{background:#1f1f1f;border-right:0.5px solid #3d3d3d;padding:16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
+.app{display:grid;grid-template-columns:300px 1fr;min-height:640px;transition:grid-template-columns .28s cubic-bezier(.4,0,.2,1)}
+.app.collapsed{grid-template-columns:48px 1fr}
+.panel{background:#1f1f1f;border-right:0.5px solid #3d3d3d;padding:16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;overflow-x:hidden;transition:padding .28s;position:relative;min-width:0}
+.app.collapsed .panel{padding:12px 0;align-items:center;overflow-y:hidden}
+.panel-inner{display:flex;flex-direction:column;gap:12px;width:100%;transition:opacity .2s,transform .2s}
+.app.collapsed .panel-inner{opacity:0;pointer-events:none;transform:translateX(-8px)}
+.collapse-btn{position:absolute;top:14px;right:10px;width:26px;height:26px;border-radius:6px;background:#272727;border:0.5px solid #3d3d3d;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:14px;flex-shrink:0;z-index:5;transition:background .15s,color .15s,transform .28s}
+.collapse-btn:hover{background:#3d3d3d;color:#f1f1f1}
+.app.collapsed .collapse-btn{position:static;margin-top:2px;transform:rotate(180deg)}
 .panel-label{font-size:10px;font-weight:500;color:#717171;text-transform:uppercase;letter-spacing:.08em}
 .upload-zone{border:1.5px dashed #3d3d3d;border-radius:10px;padding:18px 12px;text-align:center;cursor:pointer;background:#272727;position:relative;transition:border-color .15s}
 .upload-zone:hover{border-color:#ff0000}
@@ -107,7 +113,9 @@ textarea{resize:none;line-height:1.4}
 <h2 class="sr-only">YouTube Thumbnail Tester — dark theme. Upload multiple thumbnails and see them in desktop, mobile, and search layouts.</h2>
 
 <div class="app">
-  <div class="panel">
+  <div class="panel" id="sidePanel">
+    <button class="collapse-btn" id="collapseBtn" title="Toggle sidebar" onclick="togglePanel()"><i class="ti ti-layout-sidebar-left-collapse" id="collapseIcon"></i></button>
+    <div class="panel-inner" id="panelInner">
     <div class="panel-label">Thumbnails</div>
 
     <div class="upload-zone" id="uploadZone">
@@ -167,6 +175,7 @@ textarea{resize:none;line-height:1.4}
         <button class="tab-btn" onclick="setView('search')"><i class="ti ti-search" aria-hidden="true"></i> Search</button>
       </div>
     </div>
+    </div><!-- /panel-inner -->
   </div>
 
   <div class="yt-panel" id="ytPanel">
@@ -428,6 +437,16 @@ document.getElementById('videoTitle').addEventListener('input',function(){
   refreshAll();
 });
 ['channelName','viewCount','uploadAge','duration'].forEach(id=>document.getElementById(id).addEventListener('input',refreshAll));
+
+function togglePanel(){
+  const app=document.querySelector('.app');
+  const icon=document.getElementById('collapseIcon');
+  app.classList.toggle('collapsed');
+  const isCollapsed=app.classList.contains('collapsed');
+  icon.className=isCollapsed?'ti ti-layout-sidebar-left-expand':'ti ti-layout-sidebar-left-collapse';
+  // rebuild so grid reflows correctly after transition
+  setTimeout(refreshAll, 300);
+}
 
 setView('desktop');
 </script>
