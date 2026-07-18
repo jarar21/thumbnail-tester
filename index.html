@@ -58,7 +58,11 @@ textarea{resize:none;line-height:1.4}
 .yt-chip.active{background:#f1f1f1;color:#0f0f0f}
 .yt-chip:not(.active){background:#272727;color:#f1f1f1}
 .yt-chip:not(.active):hover{background:#3d3d3d}
-.yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:10px 16px 24px}
+.yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:40px 16px;padding:10px 16px 24px}
+@media(min-width: 878px) and (max-width: 1143px) { .yt-grid { grid-template-columns: repeat(3, 1fr); } }
+@media(min-width: 1144px) and (max-width: 1400px) { .yt-grid { grid-template-columns: repeat(4, 1fr); } }
+@media(min-width: 1401px) and (max-width: 1800px) { .yt-grid { grid-template-columns: repeat(5, 1fr); } }
+@media(min-width: 1801px) { .yt-grid { grid-template-columns: repeat(6, 1fr); } }
 
 .yt-m-wrap{background:#0f0f0f;max-width:390px;margin:0 auto;min-height:100%}
 .yt-m-header{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:0.5px solid #3d3d3d;background:#0f0f0f}
@@ -246,7 +250,7 @@ const fakeViews=['500M views','20M views','110M views','15M views','5M views','2
 const fakeAges=['2 years ago','1 year ago','3 years ago','3 months ago','1 month ago','1 year ago','2 years ago'];
 const fakeDurs=['25:41','15:08','21:40','22:15','14:20','8:10','4:20:10'];
 const fakeBgs=['#b71c1c','#6a1b9a','#2e7d32','#424242','#546e7a','#e65100','#c62828'];
-const fakeThumbs=['https://i.ytimg.com/vi/0e3GPea1Tyg/maxresdefault.jpg','https://i.ytimg.com/vi/iphcyNWFDsM/maxresdefault.jpg','https://i.ytimg.com/vi/hFZFjoX2cGg/maxresdefault.jpg','https://i.ytimg.com/vi/86Gy035z_KA/maxresdefault.jpg','https://i.ytimg.com/vi/8U331_a2mRk/maxresdefault.jpg','https://i.ytimg.com/vi/7mCbF6vXFzo/maxresdefault.jpg','https://i.ytimg.com/vi/rfscVS0vtbw/maxresdefault.jpg'];
+const fakeThumbs=['https://i.ytimg.com/vi/0e3GPea1Tyg/hqdefault.jpg','https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg','https://i.ytimg.com/vi/hFZFjoX2cGg/hqdefault.jpg','https://i.ytimg.com/vi/86Gy035z_KA/hqdefault.jpg','https://i.ytimg.com/vi/jNQXAC9IVRw/hqdefault.jpg','https://i.ytimg.com/vi/kffacxfA7G4/hqdefault.jpg','https://i.ytimg.com/vi/rfscVS0vtbw/hqdefault.jpg'];
 const fakeDescs=['I recreated every single set from Squid Game in real life...','Here is how we detected gravitational waves for the first time...','I built an insane obstacle course for the squirrels in my backyard...','Apple Vision Pro unboxing and review...','This PC was only $150 on Amazon...','Watch me build a real startup in just one day...','Learn Python in this complete course for beginners...'];
 
 let thumbnails=[], activeIdx=0, currentView='desktop';
