@@ -58,7 +58,7 @@ textarea{resize:none;line-height:1.4}
 .yt-chip.active{background:#f1f1f1;color:#0f0f0f}
 .yt-chip:not(.active){background:#272727;color:#f1f1f1}
 .yt-chip:not(.active):hover{background:#3d3d3d}
-.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:10px 16px 24px}
+.yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:10px 16px 24px}
 
 .yt-m-wrap{background:#0f0f0f;max-width:390px;margin:0 auto;min-height:100%}
 .yt-m-header{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:0.5px solid #3d3d3d;background:#0f0f0f}
@@ -96,7 +96,7 @@ textarea{resize:none;line-height:1.4}
 .yt-s-bar{flex:1;background:#272727;border:0.5px solid #3d3d3d;border-radius:8px;padding:8px 14px;font-size:13px;color:#aaa}
 .s-results{padding:14px 16px;display:flex;flex-direction:column;gap:16px}
 .s-card{display:flex;gap:12px;cursor:pointer}
-.s-thumb{position:relative;width:180px;min-width:180px;aspect-ratio:16/9;border-radius:9px;overflow:hidden;background:#272727}
+.s-thumb{position:relative;width:360px;min-width:360px;aspect-ratio:16/9;border-radius:9px;overflow:hidden;background:#272727}
 .s-thumb img{width:100%;height:100%;object-fit:cover}
 .s-dur{position:absolute;bottom:4px;right:5px;background:rgba(0,0,0,.9);color:#fff;font-size:10px;font-weight:600;padding:2px 5px;border-radius:4px}
 .s-info{flex:1;min-width:0;padding-top:2px}
@@ -240,13 +240,14 @@ textarea{resize:none;line-height:1.4}
 </div>
 
 <script>
-const fakeChannels=[{name:'MrBeast',i:'M',c:'#1a73e8'},{name:'Fireship',i:'F',c:'#e65100'},{name:'Linus Tech',i:'L',c:'#546e7a'},{name:'Mark Rober',i:'R',c:'#2e7d32'},{name:'Veritasium',i:'V',c:'#6a1b9a'},{name:'MKBHD',i:'M',c:'#424242'},{name:'Code.ly',i:'C',c:'#c62828'}];
-const fakeTitles=['I Built an AI That Makes $10,000/Month','The REAL Reason Your Phone Battery Dies Fast','ChatGPT vs Gemini — Which AI Wins?','This Language Will Replace Python','Why Everyone is Learning Rust Now','The World\'s Fastest PC — Worth It?','Building a SaaS in 24 Hours'];
-const fakeViews=['2.1M views','890K views','45K views','1.3M views','320K views','780K views','54K views'];
-const fakeAges=['2 weeks ago','5 days ago','1 month ago','3 days ago','6 months ago','1 year ago','8 hours ago'];
-const fakeDurs=['18:24','7:53','24:11','11:36','15:08','9:47','32:05'];
-const fakeBgs=['#b71c1c','#1565c0','#2e7d32','#e65100','#4a148c','#00695c','#f57f17'];
-const fakeDescs=['Deep dive into the tools changing everything in 2024...','Here\'s what I discovered after months of testing each one...','The results genuinely surprised me — full honest breakdown...','Step-by-step with real world examples you can follow along...'];
+const fakeChannels=[{name:'MrBeast',i:'M',c:'#1a73e8'},{name:'Veritasium',i:'V',c:'#6a1b9a'},{name:'Mark Rober',i:'M',c:'#2e7d32'},{name:'MKBHD',i:'M',c:'#424242'},{name:'Linus Tech Tips',i:'L',c:'#546e7a'},{name:'Fireship',i:'F',c:'#e65100'},{name:'freeCodeCamp.org',i:'C',c:'#c62828'}];
+const fakeTitles=['$456,000 Squid Game In Real Life!','The Absurdity of Detecting Gravitational Waves','Backyard Squirrel Maze 1.0- Ninja Warrior Course','I Bought The Apple Vision Pro!','I bought the CHEAPEST Gaming PC on Amazon','I Built a Startup in 24 Hours','Python for Beginners - Full Course'];
+const fakeViews=['500M views','20M views','110M views','15M views','5M views','2M views','40M views'];
+const fakeAges=['2 years ago','1 year ago','3 years ago','3 months ago','1 month ago','1 year ago','2 years ago'];
+const fakeDurs=['25:41','15:08','21:40','22:15','14:20','8:10','4:20:10'];
+const fakeBgs=['#b71c1c','#6a1b9a','#2e7d32','#424242','#546e7a','#e65100','#c62828'];
+const fakeThumbs=['https://i.ytimg.com/vi/0e3GPea1Tyg/maxresdefault.jpg','https://i.ytimg.com/vi/iphcyNWFDsM/maxresdefault.jpg','https://i.ytimg.com/vi/hFZFjoX2cGg/maxresdefault.jpg','https://i.ytimg.com/vi/86Gy035z_KA/maxresdefault.jpg','https://i.ytimg.com/vi/8U331_a2mRk/maxresdefault.jpg','https://i.ytimg.com/vi/7mCbF6vXFzo/maxresdefault.jpg','https://i.ytimg.com/vi/rfscVS0vtbw/maxresdefault.jpg'];
+const fakeDescs=['I recreated every single set from Squid Game in real life...','Here is how we detected gravitational waves for the first time...','I built an insane obstacle course for the squirrels in my backyard...','Apple Vision Pro unboxing and review...','This PC was only $150 on Amazon...','Watch me build a real startup in just one day...','Learn Python in this complete course for beginners...'];
 
 let thumbnails=[], activeIdx=0, currentView='desktop';
 
@@ -313,7 +314,7 @@ function makeDesktopCard(src, isYours, myIdx, fakeIdx){
   const chan=isYours?gf('channelName'):rnd(fakeChannels,fakeIdx).name;
   const avBg=isYours?'#c00000':rnd(fakeChannels,fakeIdx).c;
   const avL=isYours?(gf('channelName')[0]||'Y'):rnd(fakeChannels,fakeIdx).i;
-  const thumbContent=src?`<img src="${src}" alt="thumbnail">`:`<div class="th-ph" style="background:${rnd(fakeBgs,fakeIdx)}"></div>`;
+  const thumbContent=src?`<img src="${src}" alt="thumbnail">`:`<img src="${rnd(fakeThumbs,fakeIdx)}" alt="thumbnail" style="width:100%;height:100%;object-fit:cover">`;
   const d=document.createElement('div');
   d.style.cursor='pointer';
   d.innerHTML=`<div class="th-wrap">${makeBadge(isYours,myIdx,thumbnails.length)}${thumbContent}<span class="th-dur">${esc(dur)}</span></div><div class="card-info"><div class="avatar" style="background:${avBg}">${avL}</div><div class="card-text"><div class="card-title">${esc(title)}</div><div class="card-meta">${esc(chan)}<br>${esc(views)} · ${esc(age)}</div></div></div>`;
@@ -328,7 +329,7 @@ function makeMobileCard(src, isYours, myIdx, fakeIdx){
   const chan=isYours?gf('channelName'):rnd(fakeChannels,fakeIdx).name;
   const avBg=isYours?'#c00000':rnd(fakeChannels,fakeIdx).c;
   const avL=isYours?(gf('channelName')[0]||'Y'):rnd(fakeChannels,fakeIdx).i;
-  const thumbContent=src?`<img src="${src}" alt="thumbnail">`:`<div class="th-ph" style="background:${rnd(fakeBgs,fakeIdx)};width:100%;height:100%"></div>`;
+  const thumbContent=src?`<img src="${src}" alt="thumbnail">`:`<img src="${rnd(fakeThumbs,fakeIdx)}" alt="thumbnail" style="width:100%;height:100%;object-fit:cover">`;
   const d=document.createElement('div');
   d.innerHTML=`<div class="m-th-wrap">${makeBadge(isYours,myIdx,thumbnails.length)}${thumbContent}<span class="m-dur">${esc(dur)}</span></div><div class="m-info"><div class="m-av" style="background:${avBg}">${avL}</div><div class="m-txt"><div class="m-title">${esc(title)}</div><div class="m-meta">${esc(chan)} · ${esc(views)} · ${esc(age)}</div></div></div>`;
   return d;
@@ -341,7 +342,7 @@ function makeSearchCard(src, isYours, myIdx, fakeIdx){
   const dur=isYours?(gf('duration')||'0:00'):rnd(fakeDurs,fakeIdx);
   const chan=isYours?gf('channelName'):rnd(fakeChannels,fakeIdx).name;
   const desc=isYours?'':rnd(fakeDescs,fakeIdx);
-  const thumbContent=src?`<img src="${src}" alt="thumbnail">`:`<div class="th-ph" style="background:${rnd(fakeBgs,fakeIdx)};width:100%;height:100%"></div>`;
+  const thumbContent=src?`<img src="${src}" alt="thumbnail">`:`<img src="${rnd(fakeThumbs,fakeIdx)}" alt="thumbnail" style="width:100%;height:100%;object-fit:cover">`;
   const d=document.createElement('div');
   d.className='s-card';
   d.innerHTML=`<div class="s-thumb">${makeBadge(isYours,myIdx,thumbnails.length)}${thumbContent}<span class="s-dur">${esc(dur)}</span></div><div class="s-info"><div class="s-title">${esc(title)}</div><div class="s-ch">${esc(chan)}</div><div class="s-views">${esc(views)} · ${esc(age)}</div>${desc?`<div class="s-desc">${esc(desc)}</div>`:''}</div>`;
