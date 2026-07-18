@@ -244,16 +244,17 @@ textarea{resize:none;line-height:1.4}
 </div>
 
 <script>
-const fakeChannels=[{name:'MrBeast',i:'M',c:'#1a73e8'},{name:'Veritasium',i:'V',c:'#6a1b9a'},{name:'Mark Rober',i:'M',c:'#2e7d32'},{name:'MKBHD',i:'M',c:'#424242'},{name:'Linus Tech Tips',i:'L',c:'#546e7a'},{name:'Fireship',i:'F',c:'#e65100'},{name:'freeCodeCamp.org',i:'C',c:'#c62828'}];
-const fakeTitles=['$456,000 Squid Game In Real Life!','The Absurdity of Detecting Gravitational Waves','Backyard Squirrel Maze 1.0- Ninja Warrior Course','I Bought The Apple Vision Pro!','I bought the CHEAPEST Gaming PC on Amazon','I Built a Startup in 24 Hours','Python for Beginners - Full Course'];
-const fakeViews=['500M views','20M views','110M views','15M views','5M views','2M views','40M views'];
-const fakeAges=['2 years ago','1 year ago','3 years ago','3 months ago','1 month ago','1 year ago','2 years ago'];
-const fakeDurs=['25:41','15:08','21:40','22:15','14:20','8:10','4:20:10'];
+const fakeChannels=[{"name": "MrBeast", "i": "M", "c": "#1a73e8"}, {"name": "Mark Rober", "i": "M", "c": "#2e7d32"}, {"name": "Dude Perfect", "i": "D", "c": "#c62828"}, {"name": "Veritasium", "i": "V", "c": "#6a1b9a"}, {"name": "Sidemen", "i": "S", "c": "#f57f17"}, {"name": "Marques Brownlee", "i": "M", "c": "#424242"}, {"name": "Linus Tech Tips", "i": "L", "c": "#546e7a"}];
+const fakeTitles=["Survive 30 Days Chained To A Stranger, Win $250,000", "Engineers vs Junkyard RC Car Death Match", "HOW MANY BALLOONS TO FLY? (Mini Games Battle)", "The World's Most Important Machine", "SIDEMEN GUESS THE FOOTBALLER ft Erling Haaland", "I Bought The Apple Vision Pro!", "I bought the CHEAPEST Gaming PC on Amazon"];
+const fakeViews=["74M views", "29M views", "33M views", "33M views", "16M views", "20M views", "5M views"];
+const fakeAges=["2 weeks ago", "4 months ago", "5 months ago", "6 months ago", "4 months ago", "5 months ago", "1 month ago"];
+const fakeDurs=["35:04", "18:52", "18:34", "55:00", "47:28", "22:15", "14:20"];
 const fakeBgs=['#b71c1c','#6a1b9a','#2e7d32','#424242','#546e7a','#e65100','#c62828'];
-const fakeThumbs=['https://i.ytimg.com/vi/0e3GPea1Tyg/hqdefault.jpg','https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg','https://i.ytimg.com/vi/hFZFjoX2cGg/hqdefault.jpg','https://i.ytimg.com/vi/86Gy035z_KA/hqdefault.jpg','https://i.ytimg.com/vi/jNQXAC9IVRw/hqdefault.jpg','https://i.ytimg.com/vi/kffacxfA7G4/hqdefault.jpg','https://i.ytimg.com/vi/rfscVS0vtbw/hqdefault.jpg'];
-const fakeDescs=['I recreated every single set from Squid Game in real life...','Here is how we detected gravitational waves for the first time...','I built an insane obstacle course for the squirrels in my backyard...','Apple Vision Pro unboxing and review...','This PC was only $150 on Amazon...','Watch me build a real startup in just one day...','Learn Python in this complete course for beginners...'];
+const fakeThumbs=["https://i.ytimg.com/vi/iYlODtkyw_I/hqdefault.jpg", "https://i.ytimg.com/vi/Xg1ro-zG7AM/hqdefault.jpg", "https://i.ytimg.com/vi/A10M15TdZpI/hqdefault.jpg", "https://i.ytimg.com/vi/MiUHjLxm3V0/hqdefault.jpg", "https://i.ytimg.com/vi/k6tPeMMUn6A/hqdefault.jpg", "https://i.ytimg.com/vi/86Gy035z_KA/hqdefault.jpg", "https://i.ytimg.com/vi/jNQXAC9IVRw/hqdefault.jpg"];
+const fakeDescs=["imagine being chained to a random stranger for 30 days lol", "Never trust a lemon with a motor... Learn to embrace failure while having tons of fun with CrunchLabs", "How many balloons will float a kid? How much milk can be bench pressed?", "The insane machines that make the most advanced computer chips.", "This might be the biggest collab we've ever done... Guess the footballer with Erling Haaland", "Apple Vision Pro unboxing and review...", "This PC was only $150 on Amazon..."];
 
 let thumbnails=[], activeIdx=0, currentView='desktop';
+refreshAll();
 
 function rnd(a,i){return a[i%a.length]}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
