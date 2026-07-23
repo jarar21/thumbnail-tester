@@ -58,7 +58,7 @@ textarea{resize:none;line-height:1.4}
 .yt-chip.active{background:#f1f1f1;color:#0f0f0f}
 .yt-chip:not(.active){background:#272727;color:#f1f1f1}
 .yt-chip:not(.active):hover{background:#3d3d3d}
-.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 16px;padding:24px 16px}
+.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 16px;padding:24px 24px}
 
 .yt-m-wrap{background:#0f0f0f;max-width:390px;margin:0 auto;min-height:100%}
 .yt-m-header{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:0.5px solid #3d3d3d;background:#0f0f0f}
@@ -71,17 +71,17 @@ textarea{resize:none;line-height:1.4}
 .yt-m-chip.active{background:#f1f1f1;color:#0f0f0f}
 .yt-m-chip:not(.active){background:#272727;color:#f1f1f1}
 
-.th-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#272727}
+.th-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#272727}
 .th-wrap img{width:100%;height:100%;object-fit:cover}
 .th-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#555}
-.th-dur{position:absolute;bottom:5px;right:5px;background:rgba(0,0,0,.9);color:#fff;font-size:11px;font-weight:600;padding:2px 5px;border-radius:4px}
+.th-dur{position:absolute;bottom:4px;right:4px;background:rgba(0,0,0,.8);color:#fff;font-size:12px;font-weight:500;padding:3px 4px;border-radius:4px;line-height:1}
 .your-badge{position:absolute;top:6px;left:6px;background:#ff0000;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;z-index:2}
 
-.card-info{display:flex;gap:8px;margin-top:10px}
-.avatar{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
+.card-info{display:flex;gap:12px;margin-top:12px}
+.avatar{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
 .card-text{flex:1;min-width:0}
-.card-title{font-size:13px;font-weight:500;color:#f1f1f1;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{font-size:12px;color:#aaa;margin-top:3px;line-height:1.4}
+.card-title{font-size:16px;font-weight:500;color:#f1f1f1;line-height:22px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{font-size:14px;color:#aaa;margin-top:4px;line-height:20px}
 
 .m-th-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#272727;overflow:hidden}
 .m-th-wrap img{width:100%;height:100%;object-fit:cover}
@@ -240,14 +240,14 @@ textarea{resize:none;line-height:1.4}
 </div>
 
 <script>
-const fakeChannels=[{"name": "MrBeast", "i": "M", "c": "#1a73e8"}, {"name": "Mark Rober", "i": "M", "c": "#2e7d32"}, {"name": "Dude Perfect", "i": "D", "c": "#c62828"}, {"name": "Veritasium", "i": "V", "c": "#6a1b9a"}, {"name": "Sidemen", "i": "S", "c": "#f57f17"}, {"name": "Marques Brownlee", "i": "M", "c": "#424242"}, {"name": "Linus Tech Tips", "i": "L", "c": "#546e7a"}];
-const fakeTitles=["Survive 30 Days Chained To A Stranger, Win $250,000", "Engineers vs Junkyard RC Car Death Match", "HOW MANY BALLOONS TO FLY? (Mini Games Battle)", "The World's Most Important Machine", "SIDEMEN GUESS THE FOOTBALLER ft Erling Haaland", "I Bought The Apple Vision Pro!", "I bought the CHEAPEST Gaming PC on Amazon"];
-const fakeViews=["74M views", "29M views", "33M views", "33M views", "16M views", "20M views", "5M views"];
-const fakeAges=["2 weeks ago", "4 months ago", "5 months ago", "6 months ago", "4 months ago", "5 months ago", "1 month ago"];
-const fakeDurs=["35:04", "18:52", "18:34", "55:00", "47:28", "22:15", "14:20"];
-const fakeBgs=['#b71c1c','#6a1b9a','#2e7d32','#424242','#546e7a','#e65100','#c62828'];
-const fakeThumbs=["https://i.ytimg.com/vi/iYlODtkyw_I/hqdefault.jpg", "https://i.ytimg.com/vi/Xg1ro-zG7AM/hqdefault.jpg", "https://i.ytimg.com/vi/A10M15TdZpI/hqdefault.jpg", "https://i.ytimg.com/vi/MiUHjLxm3V0/hqdefault.jpg", "https://i.ytimg.com/vi/k6tPeMMUn6A/hqdefault.jpg", "https://i.ytimg.com/vi/86Gy035z_KA/hqdefault.jpg", "https://i.ytimg.com/vi/jNQXAC9IVRw/hqdefault.jpg"];
-const fakeDescs=["imagine being chained to a random stranger for 30 days lol", "Never trust a lemon with a motor... Learn to embrace failure while having tons of fun with CrunchLabs", "How many balloons will float a kid? How much milk can be bench pressed?", "The insane machines that make the most advanced computer chips.", "This might be the biggest collab we've ever done... Guess the footballer with Erling Haaland", "Apple Vision Pro unboxing and review...", "This PC was only $150 on Amazon..."];
+const fakeChannels=[{"name":"MrBeast","i":"M","c":"#1a73e8"},{"name":"MrBeast","i":"M","c":"#1a73e8"},{"name":"Mark Rober","i":"M","c":"#2e7d32"},{"name":"Mark Rober","i":"M","c":"#2e7d32"},{"name":"Veritasium","i":"V","c":"#6a1b9a"},{"name":"Veritasium","i":"V","c":"#6a1b9a"},{"name":"Marques Brownlee","i":"M","c":"#424242"},{"name":"Sidemen","i":"S","c":"#f57f17"},{"name":"The Diary Of A CEO","i":"T","c":"#d81b60"}];
+const fakeTitles=["Survive 100 Days In Circle, Win $500,000","I Built Willy Wonka's Chocolate Factory!","Glitterbomb Trap Catches Phone Scammer (who gets arrested)","Backyard Squirrel Maze 1.0- Ninja Warrior Course","The Absurdity of Detecting Gravitational Waves","Why No One Has Measured The Speed Of Light","Apple Vision Pro Review: Tomorrow's Ideas... Today's Tech!","SIDEMEN TINDER IN REAL LIFE 4","Simon Sinek: The Number One Reason Why You're Not Succeeding!"];
+const fakeViews=["120M views","150M views","85M views","92M views","12M views","34M views","20M views","55M views","4.5M views"];
+const fakeAges=["2 weeks ago","1 year ago","2 years ago","3 years ago","1 month ago","2 years ago","5 months ago","1 year ago","3 months ago"];
+const fakeDurs=["22:30","17:21","23:45","21:14","18:50","19:42","25:10","1:10:45","1:34:20"];
+const fakeBgs=['#1a73e8','#1a73e8','#2e7d32','#2e7d32','#6a1b9a','#6a1b9a','#424242','#f57f17','#d81b60'];
+const fakeThumbs=["https://i.ytimg.com/vi/gNzH15s3kU8/hqdefault.jpg","https://i.ytimg.com/vi/Hwybp38GnZw/hqdefault.jpg","https://i.ytimg.com/vi/h4T_LlK1VE4/hqdefault.jpg","https://i.ytimg.com/vi/hFZFjoX2cGg/hqdefault.jpg","https://i.ytimg.com/vi/iphcyNWFDsM/hqdefault.jpg","https://i.ytimg.com/vi/pTN6yjuHIWM/hqdefault.jpg","https://i.ytimg.com/vi/86Gy035z_KA/hqdefault.jpg","https://i.ytimg.com/vi/k6tPeMMUn6A/hqdefault.jpg","https://i.ytimg.com/vi/qJt9X8aNsvw/hqdefault.jpg"];
+const fakeDescs=["I put 100 people in a circle...","I built a real life Willy Wonka Chocolate Factory!","We built a glitterbomb to catch scammers...","Squirrels stealing my bird seed...","Gravitational waves are so hard to detect...","No one has actually measured the one-way speed of light...","Apple Vision Pro unboxing and review...","Tinder in real life is back!","Simon Sinek joins me today..."];
 
 let thumbnails=[], activeIdx=0, currentView='desktop';
 refreshAll();
