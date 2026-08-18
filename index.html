@@ -240,88 +240,87 @@ textarea{resize:none;line-height:1.4}
 
 <script>
 const fakeChannels = [
-  { name: "MrBeast", i: "M", c: "#1a73e8" },
-  { name: "MrBeast", i: "M", c: "#1a73e8" },
-  { name: "Airrack", i: "A", c: "#ff4444" },
-  { name: "Michelle Khare", i: "M", c: "#9c27b0" },
+  { name: "Aperture", i: "A", c: "#1a73e8" },
+  { name: "MrBeast", i: "M", c: "#2e7d32" },
   { name: "Marques Brownlee", i: "M", c: "#424242" },
-  { name: "Mark Rober", i: "M", c: "#2e7d32" },
-  { name: "Ali Abdaal", i: "A", c: "#f57c00" },
-  { name: "Kurzgesagt", i: "K", c: "#00acc1" },
-  { name: "Sidemen", i: "S", c: "#000000" }
+  { name: "The Signal Path", i: "T", c: "#ff4444" },
+  { name: "Dhruv Rathee", i: "D", c: "#f57c00" },
+  { name: "DeepMind", i: "D", c: "#6a1b9a" },
+  { name: "Science Channel", i: "S", c: "#00acc1" },
+  { name: "Nitish Rajput", i: "N", c: "#000000" },
+  { name: "Economics Explained", i: "E", c: "#d81b60" }
 ];
 
 const fakeTitles = [
+  "Stoicism: Become Undefeatable",
   "$456,000 Squid Game In Real Life!",
-  "I Spent 7 Days In Solitary Confinement",
-  "I Built The World's Largest Pizza",
-  "I Trained Like a NASA Astronaut",
-  "Apple Vision Pro Review: Tomorrow's Ideas... Today's Tech!",
-  "Glitterbomb Trap Catches Phone Scammer (who gets arrested)",
-  "How I Manage My Time - 10 Time Management Tips",
-  "The Immune System Explained I – Bacteria Infection",
-  "SIDEMEN TINDER IN REAL LIFE 4"
+  "I shrunk down into an M5 chip",
+  "How Did Mark Rober Steal a Car Using a Baby Monitor?!",
+  "2026 will be India's Hottest Year | SUPER El Niño is Coming",
+  "The AlphaFold Revolution",
+  "Is spider web really stronger than steel?",
+  "How Did They Track Khamenei?",
+  "How did Switzerland go from Poor to Infinite Money? (With no oil & no gold)"
 ];
 
 const fakeViews = [
+  "10M views",
   "600M views",
-  "230M views",
-  "85M views",
-  "40M views",
-  "24M views",
-  "92M views",
-  "15M views",
-  "65M views",
-  "55M views"
+  "5M views",
+  "2M views",
+  "12M views",
+  "1.5M views",
+  "3M views",
+  "4.2M views",
+  "8M views"
 ];
 
 const fakeAges = [
-  "2 years ago",
-  "5 months ago",
-  "1 year ago",
-  "4 years ago",
-  "1 month ago",
-  "2 years ago",
   "3 years ago",
-  "5 years ago",
-  "1 year ago"
+  "2 years ago",
+  "3 weeks ago",
+  "3 months ago",
+  "3 months ago",
+  "1 year ago",
+  "2 years ago",
+  "1 month ago",
+  "6 months ago"
 ];
 
 const fakeDurs = [
+  "20:14",
   "25:42",
-  "18:21",
-  "14:10",
-  "22:15",
-  "25:10",
-  "23:45",
-  "16:30",
-  "6:48",
-  "1:10:45"
+  "12:30",
+  "39:55",
+  "15:20",
+  "10:05",
+  "8:45",
+  "18:12",
+  "22:10"
 ];
 
-// These use the actual, live max-resolution thumbnails from these iconic videos
 const fakeThumbs = [
+  "https://i.ytimg.com/vi/EFkyxzJtiv4/maxresdefault.jpg",
   "https://i.ytimg.com/vi/0e3GPea1Tyg/maxresdefault.jpg",
-  "https://i.ytimg.com/vi/02263L2i1vE/maxresdefault.jpg",
-  "https://i.ytimg.com/vi/sU14V_9S-q0/maxresdefault.jpg",
-  "https://i.ytimg.com/vi/kYJz-211-1Y/maxresdefault.jpg",
-  "https://i.ytimg.com/vi/9bZkp7q19f0/maxresdefault.jpg",
-  "https://i.ytimg.com/vi/hFZFjoX2cGg/maxresdefault.jpg",
-  "https://i.ytimg.com/vi/ukLnPbIffxE/maxresdefault.jpg",
-  "https://i.ytimg.com/vi/zQGOcOUBi6s/maxresdefault.jpg",
-  "https://i.ytimg.com/vi/09R8_2nJtjg/maxresdefault.jpg"
+  "https://i.ytimg.com/vi/Jh9pFp1oM7E/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/h0EGCnBjTVk/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/UQr0wGqvfe4/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/P_fHJIYENdI/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/wt4p2oalmRY/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/tsAimcI66bo/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/C_OZ-jpW8hA/maxresdefault.jpg"
 ];
 
 const fakeDescs = [
+  "An exploration of Stoicism and how to apply it...",
   "I recreated every single set from Squid Game in real life...",
-  "I spent 7 days in solitary confinement...",
-  "We built the world's largest pizza...",
-  "I trained like a NASA astronaut...",
-  "Apple Vision Pro unboxing and review...",
-  "We built a glitterbomb to catch scammers...",
-  "Here are 10 time management tips...",
-  "The immune system explained...",
-  "Tinder in real life is back!"
+  "Exploring the microscopic scale of transistors...",
+  "Shahriar and Mark Rober explain the RF circuits...",
+  "Analysis of the upcoming El Niño and climate impact...",
+  "How AI is solving a 50-year-old grand challenge in biology...",
+  "Testing the true tensile strength of spider silk...",
+  "An investigative look into the tracking methods used...",
+  "The economic history of Switzerland's wealth..."
 ];
 
 let thumbnails=[], activeIdx=0, currentView='desktop';
