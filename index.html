@@ -239,14 +239,90 @@ textarea{resize:none;line-height:1.4}
 </div>
 
 <script>
-const fakeChannels=[{"name":"MrBeast","i":"M","c":"#1a73e8"},{"name":"MrBeast","i":"M","c":"#1a73e8"},{"name":"Mark Rober","i":"M","c":"#2e7d32"},{"name":"Mark Rober","i":"M","c":"#2e7d32"},{"name":"Veritasium","i":"V","c":"#6a1b9a"},{"name":"Veritasium","i":"V","c":"#6a1b9a"},{"name":"Marques Brownlee","i":"M","c":"#424242"},{"name":"Sidemen","i":"S","c":"#f57f17"},{"name":"The Diary Of A CEO","i":"T","c":"#d81b60"}];
-const fakeTitles=["Survive 100 Days In Circle, Win $500,000","I Built Willy Wonka's Chocolate Factory!","Glitterbomb Trap Catches Phone Scammer (who gets arrested)","Backyard Squirrel Maze 1.0- Ninja Warrior Course","The Absurdity of Detecting Gravitational Waves","Why No One Has Measured The Speed Of Light","Apple Vision Pro Review: Tomorrow's Ideas... Today's Tech!","SIDEMEN TINDER IN REAL LIFE 4","Simon Sinek: The Number One Reason Why You're Not Succeeding!"];
-const fakeViews=["120M views","150M views","85M views","92M views","12M views","34M views","20M views","55M views","4.5M views"];
-const fakeAges=["2 weeks ago","1 year ago","2 years ago","3 years ago","1 month ago","2 years ago","5 months ago","1 year ago","3 months ago"];
-const fakeDurs=["22:30","17:21","23:45","21:14","18:50","19:42","25:10","1:10:45","1:34:20"];
-const fakeBgs=['#1a73e8','#1a73e8','#2e7d32','#2e7d32','#6a1b9a','#6a1b9a','#424242','#f57f17','#d81b60'];
-const fakeThumbs=["https://i.ytimg.com/vi/Hwybp38GnZw/maxresdefault.jpg","https://i.ytimg.com/vi/h4T_LlK1VE4/maxresdefault.jpg","https://i.ytimg.com/vi/hFZFjoX2cGg/maxresdefault.jpg","https://i.ytimg.com/vi/86Gy035z_KA/maxresdefault.jpg","https://i.ytimg.com/vi/k6tPeMMUn6A/maxresdefault.jpg","https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg","https://i.ytimg.com/vi/9bZkp7q19f0/maxresdefault.jpg","https://i.ytimg.com/vi/09R8_2nJtjg/maxresdefault.jpg","https://i.ytimg.com/vi/LXb3EKWsInQ/maxresdefault.jpg"];
-const fakeDescs=["I put 100 people in a circle...","I built a real life Willy Wonka Chocolate Factory!","We built a glitterbomb to catch scammers...","Squirrels stealing my bird seed...","Gravitational waves are so hard to detect...","No one has actually measured the one-way speed of light...","Apple Vision Pro unboxing and review...","Tinder in real life is back!","Simon Sinek joins me today..."];
+const fakeChannels = [
+  { name: "MrBeast", i: "M", c: "#1a73e8" },
+  { name: "MrBeast", i: "M", c: "#1a73e8" },
+  { name: "Airrack", i: "A", c: "#ff4444" },
+  { name: "Michelle Khare", i: "M", c: "#9c27b0" },
+  { name: "Marques Brownlee", i: "M", c: "#424242" },
+  { name: "Mark Rober", i: "M", c: "#2e7d32" },
+  { name: "Ali Abdaal", i: "A", c: "#f57c00" },
+  { name: "Kurzgesagt", i: "K", c: "#00acc1" },
+  { name: "Sidemen", i: "S", c: "#000000" }
+];
+
+const fakeTitles = [
+  "$456,000 Squid Game In Real Life!",
+  "I Spent 7 Days In Solitary Confinement",
+  "I Built The World's Largest Pizza",
+  "I Trained Like a NASA Astronaut",
+  "Apple Vision Pro Review: Tomorrow's Ideas... Today's Tech!",
+  "Glitterbomb Trap Catches Phone Scammer (who gets arrested)",
+  "How I Manage My Time - 10 Time Management Tips",
+  "The Immune System Explained I – Bacteria Infection",
+  "SIDEMEN TINDER IN REAL LIFE 4"
+];
+
+const fakeViews = [
+  "600M views",
+  "230M views",
+  "85M views",
+  "40M views",
+  "24M views",
+  "92M views",
+  "15M views",
+  "65M views",
+  "55M views"
+];
+
+const fakeAges = [
+  "2 years ago",
+  "5 months ago",
+  "1 year ago",
+  "4 years ago",
+  "1 month ago",
+  "2 years ago",
+  "3 years ago",
+  "5 years ago",
+  "1 year ago"
+];
+
+const fakeDurs = [
+  "25:42",
+  "18:21",
+  "14:10",
+  "22:15",
+  "25:10",
+  "23:45",
+  "16:30",
+  "6:48",
+  "1:10:45"
+];
+
+// These use the actual, live max-resolution thumbnails from these iconic videos
+const fakeThumbs = [
+  "https://i.ytimg.com/vi/0e3GPea1Tyg/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/02263L2i1vE/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/sU14V_9S-q0/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/kYJz-211-1Y/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/9bZkp7q19f0/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/hFZFjoX2cGg/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/ukLnPbIffxE/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/zQGOcOUBi6s/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/09R8_2nJtjg/maxresdefault.jpg"
+];
+
+const fakeDescs = [
+  "I recreated every single set from Squid Game in real life...",
+  "I spent 7 days in solitary confinement...",
+  "We built the world's largest pizza...",
+  "I trained like a NASA astronaut...",
+  "Apple Vision Pro unboxing and review...",
+  "We built a glitterbomb to catch scammers...",
+  "Here are 10 time management tips...",
+  "The immune system explained...",
+  "Tinder in real life is back!"
+];
 
 let thumbnails=[], activeIdx=0, currentView='desktop';
 refreshAll();
